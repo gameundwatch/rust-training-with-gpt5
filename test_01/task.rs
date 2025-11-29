@@ -4,5 +4,10 @@
 // - 行のフォーマットは `[回数] Hello, {name}!` です (回数は 1 始まり)。
 // - times が 0 の場合は空文字列を返します。ループや `for` を活用して繰り返しを表現しましょう。
 pub fn build_greeting(name: &str, times: usize) -> String {
-    todo!("ここに処理を書いてください")
+    // todo!("ここに処理を書いてください")
+    let mut greet = String::new();
+    for n in 1..times {
+        greet = greet + format!("[{}] Hello, {}!", format!("{}", n), name)
+    }
+    return greet;
 }
