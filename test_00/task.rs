@@ -4,5 +4,9 @@
 // - 計算結果は (面積, 周の長さ, 正方形か) のタプルで返してください。
 // - 面積・周の長さは不変なので `let`、必要に応じて中間値を更新する場合は `let mut` を使い分けましょう。
 pub fn rectangle_report(width: u32, height: u32) -> (u32, u32, bool) {
-    todo!("ここに処理を書いてください");
+    let area = width * height;
+    let perimeter = 2 * (width + height);
+    let is_square = width == height;
+    return (area, perimeter, is_square);
+    // todo!("ここに処理を書いてください");
 }
