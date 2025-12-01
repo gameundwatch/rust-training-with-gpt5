@@ -6,8 +6,11 @@
 pub fn build_greeting(name: &str, times: usize) -> String {
     // todo!("ここに処理を書いてください")
     let mut greet = String::new();
-    for n in 1..times {
-        greet = greet + format!("[{}] Hello, {}!", format!("{}", n), name)
+    for n in 0..times {
+        if n > 0 {
+            greet.push('\n');
+        }
+        greet.push_str(&format!("[{}] Hello, {}!", n + 1, name));
     }
     return greet;
 }
