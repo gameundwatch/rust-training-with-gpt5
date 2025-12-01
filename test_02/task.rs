@@ -4,5 +4,19 @@
 // - 偶数が 1 つも無い場合は `None`、存在する場合は `Some(平均値)` を返してください。
 // - 端数処理は f64 にキャストしてから割り算を行います。`iter().filter()` などの組み合わせ練習に最適です。
 pub fn average_even(numbers: &[i32]) -> Option<f64> {
-    todo!("ここに処理を書いてください")
+    let mut count = 0i32;
+    let mut sum = 0f64;
+
+    for &n in numbers {
+        println!("the value is {}", n);
+        if n % 2 == 0 {
+            count += 1;
+            sum += n as f64;
+        };
+    }
+    if count == 0 {
+        return None;
+    }
+    return Some(sum as f64 / count as f64);
+    // todo!("ここに処理を書いてください")
 }
