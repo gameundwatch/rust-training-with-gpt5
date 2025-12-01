@@ -10,5 +10,21 @@ pub enum ParseScoreError {
 }
 
 pub fn parse_score_line(line: &str) -> Result<Vec<i32>, ParseScoreError> {
-    todo!("ここに処理を書いてください")
+    // todo!("ここに処理を書いてください")
+    let trimmed = line.trim();
+    if trimmed.is_empty() {
+        return Err(ParseScoreError::Empty);
+    }
+
+    let vec = trimmed
+        .split(',')
+        .map(|raw| {
+            let token = raw.trim();
+            token
+                .parse()
+                .map_err(|_| ParseScoreError::Invalid(token.to_string()))
+        })
+        .collect::<Result<Vec<i32>, _>>();
+
+    vec
 }
