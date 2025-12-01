@@ -6,5 +6,15 @@ use std::collections::HashMap;
 // - 空文字列は無視し、結果のマップを返してください。
 // - HashMap の `entry` API を使うと集計しやすくなります。標準ライブラリの所有権移動に注意しましょう。
 pub fn word_tally(text: &str) -> HashMap<String, usize> {
-    todo!("ここに処理を書いてください")
+    let mut dict = HashMap::new();
+    for w in text.split(|c: char| !c.is_alphanumeric()) {
+        if w.is_empty() {
+            continue;
+        }
+        let word = w.to_lowercase();
+        *dict.entry(word).or_insert(0) += 1;
+    }
+
+    return dict;
+    // todo!("ここに処理を書いてください")
 }
